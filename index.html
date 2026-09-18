@@ -3,45 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的随笔与文章</title>
+    <title>我的个人主页 - 随想与分享</title>
     <style>
-        /* 简易页面排版样式 */
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.8; 
-            color: #333; 
-            max-width: 680px; 
-            margin: 40px auto; 
-            padding: 0 20px; 
-            background-color: #fafafa;
+        /* 基础全局样式 */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px 10px;
         }
-        .article { background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        h1 { color: #111; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        .date { color: #888; font-size: 0.9em; margin-bottom: 20px; }
-        p { margin-bottom: 1.2em; text-align: justify; }
-        blockquote { border-left: 4px solid #0070f3; margin: 20px 0; padding-left: 15px; color: #555; background: #f0f7ff; padding: 10px 15px; border-radius: 0 8px 8px 0; }
+        .container { max-width: 800px; margin: 0 auto; }
+
+        /* 顶部个人 Header */
+        header {
+            background: #ffffff;
+            padding: 30px 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 20px;
+        }
+        header h1 { font-size: 1.8rem; color: #111; margin-bottom: 8px; }
+        header p { color: #666; font-size: 0.95rem; }
+
+        /* 通用卡片板块 */
+        .card {
+            background: #ffffff;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 20px;
+        }
+        .card-title {
+            font-size: 1.2rem;
+            color: #0070f3;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* 1. 诗词板块样式 */
+        .poem-box {
+            background: #fcfbf7;
+            border-left: 4px solid #d4a373;
+            padding: 16px;
+            border-radius: 4px;
+            text-align: center;
+            font-family: "KaiTi", "楷体", serif;
+        }
+        .poem-title { font-size: 1.1rem; font-weight: bold; margin-bottom: 6px; }
+        .poem-author { color: #888; font-size: 0.85rem; margin-bottom: 12px; }
+        .poem-content { line-height: 2; color: #444; }
+
+        /* 2. 照片展示样式 */
+        .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+        .photo-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; }
+        .photo-caption { font-size: 0.85rem; color: #666; text-align: center; margin-top: 4px; }
+
+        /* 3. 热点/资讯样式 */
+        .news-list { list-style: none; }
+        .news-item { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px dashed #eee; }
+        .news-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .news-tag { background: #e6f7ff; color: #1890ff; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; margin-right: 6px; }
+        .news-title { text-decoration: none; color: #333; font-weight: 500; }
+        .news-title:hover { color: #0070f3; }
+
+        /* 4. 联系方式样式 */
+        .contact-list { display: flex; flex-wrap: wrap; gap: 12px; }
+        .contact-btn {
+            background: #f5f5f5;
+            color: #444;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        .contact-btn:hover { background: #0070f3; color: #fff; }
+
+        /* 页脚 */
+        footer { text-align: center; color: #aaa; font-size: 0.8rem; margin-top: 30px; }
     </style>
 </head>
 <body>
 
-    <div class="article">
-        <!-- 文章标题 -->
-        <h1>这是我的第一篇文章标题</h1>
-        
-        <!-- 发布时间 -->
-        <div class="date">发布于：2026年9月18日</div>
+    <div class="container">
 
-        <!-- 正文段落 -->
-        <p>这里写你的第一段正文。你可以随意表达你的想法、分享故事或者记录生活。网页会自动根据屏幕宽度进行排版，不需要手动打空格。</p>
+        <!-- 顶部个人简介 -->
+        <header>
+            <h1> Welcome to My Space</h1>
+            <p>记录生活随想 · 交流生活感悟 · 观点与热点分享</p>
+        </header>
 
-        <p>这是第二段正文。如果你想让某些文字特别醒目，可以使用 <strong>加粗效果</strong>。</p>
+        <!-- 板块 1：日常随想 -->
+        <div class="card">
+            <h2 class="card-title">✍️ 日常随想</h2>
+            <p style="margin-bottom: 10px;"><strong>2026年9月18日：关于搭建网站的小记</strong></p>
+            <p>今天终于把自己的个人网站搭建起来了，过程比想象中有趣。拥有一个属于自己的小天地，不用受算法推荐的打扰，安心写点自己喜欢的东西，感觉很棒。</p>
+        </div>
 
-        <!-- 引言/名言框 -->
-        <blockquote>
-            “这里可以放一句你喜欢的金句、名言，或者是文章的核心观点。”
-        </blockquote>
+        <!-- 板块 2：每日诗词赏析 -->
+        <div class="card">
+            <h2 class="card-title">📜 诗词赏析</h2>
+            <div class="poem-box">
+                <div class="poem-title">《定风波》</div>
+                <div class="poem-author">[宋] 苏轼</div>
+                <div class="poem-content">
+                    莫听穿林打叶声，何妨吟啸且徐行。<br>
+                    竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。
+                </div>
+            </div>
+        </div>
 
-        <p>这是第三段正文。写完之后，直接按照之前的步骤在 GitHub 上保存提交，Vercel 就会自动把你的新文章同步到网站上。</p>
+        <!-- 板块 3：生活瞬间/图片 -->
+        <div class="card">
+            <h2 class="card-title">🖼️ 图文相册</h2>
+            <div class="photo-grid">
+                <div class="photo-card">
+                    <!-- 替换 src 里面的网址为你自己的图片链接 -->
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=500" alt="风景照片">
+                    <div class="photo-caption">路途中的风景</div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500" alt="生活随笔">
+                    <div class="photo-caption">下午茶时光</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 板块 4：热点关注/文章推荐 -->
+        <div class="card">
+            <h2 class="card-title">🔥 关注与热点</h2>
+            <ul class="news-list">
+                <li class="news-item">
+                    <span class="news-tag">科技</span>
+                    <a href="#" class="news-title">AI 技术给普通人带来的建站效率革命</a>
+                </li>
+                <li class="news-item">
+                    <span class="news-tag">阅读</span>
+                    <a href="#" class="news-title">近期值得深度阅读的几本好书推荐</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 板块 5：联系方式 -->
+        <div class="card">
+            <h2 class="card-title">📬 联系与关注</h2>
+            <div class="contact-list">
+                <a href="mailto:your-email@example.com" class="contact-btn">📧 发送邮件</a>
+                <a href="https://github.com" target="_blank" class="contact-btn">🐙 GitHub</a>
+                <a href="#" class="contact-btn">💬 微信/公众号：你的名字</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2026 我的个人主页 · Powered by GitHub & Vercel</p>
+        </footer>
+
     </div>
 
 </body>
