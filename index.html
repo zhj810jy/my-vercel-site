@@ -88,10 +88,19 @@
         .news-item { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px dashed #eee; }
         .news-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
         .news-tag { background: #e6f7ff; color: #1890ff; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; margin-right: 6px; }
-        .news-title { text-decoration: none; color: #333; font-weight: 500; }
-        .news-title:hover { color: #0070f3; }
+        .news-title-btn {
+            background: none;
+            border: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 0;
+            text-align: left;
+        }
+        .news-title-btn:hover { color: #0070f3; text-decoration: underline; }
 
-       
+      
         .data-box {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
@@ -109,8 +118,9 @@
             color: #ffffff;
             padding: 8px 16px;
             border-radius: 6px;
-            text-decoration: none;
             font-size: 0.85rem;
+            border: none;
+            cursor: pointer;
             transition: background 0.2s;
         }
         .data-btn:hover {
@@ -186,8 +196,8 @@
             <h2 class="card-title">📈 数据与金融观察</h2>
             <div class="data-box">
                 <p class="data-desc"><strong>美国财政部 TIC 资本流动数据表 (Table 5)</strong><br>包含主要外国持有者的美国国债持仓变化及国际资本流动统计。</p>
-                <!-- 此处链接指向内部 go-tic.html 页面 -->
-                <a href="go-tic.html" target="_blank" rel="noopener noreferrer" class="data-btn">🔗 点击查看完整 TIC 表格数据 (US Treasury)</a>
+                <!-- 无 href 属性，纯 JavaScript 触发打开，无法右键复制链接 -->
+                <button class="data-btn" onclick="openTicData()">🔗 点击查看完整 TIC 表格数据 (US Treasury)</button>
             </div>
         </div>
 
@@ -197,16 +207,15 @@
             <ul class="news-list">
                 <li class="news-item">
                     <span class="news-tag">数据</span>
-                    <!-- 此处链接同样指向内部 go-tic.html 页面 -->
-                    <a href="go-tic.html" target="_blank" class="news-title">美国 TIC 官方资本流动与国债持仓统计数据 (SLT Table 5)</a>
+                    <button class="news-title-btn" onclick="openTicData()">美国 TIC 官方资本流动与国债持仓统计数据 (SLT Table 5)</button>
                 </li>
                 <li class="news-item">
                     <span class="news-tag">科技</span>
-                    <a href="#" class="news-title">AI 技术给普通人带来的建站效率革命</a>
+                    <a href="#" class="news-title-btn" style="text-decoration:none;">AI 技术给普通人带来的建站效率革命</a>
                 </li>
                 <li class="news-item">
                     <span class="news-tag">阅读</span>
-                    <a href="#" class="news-title">近期值得深度阅读的几本好书推荐</a>
+                    <a href="#" class="news-title-btn" style="text-decoration:none;">近期值得深度阅读的几本好书推荐</a>
                 </li>
             </ul>
         </div>
@@ -227,5 +236,13 @@
 
     </div>
 
+    <!-- 拼接网址函数：完全隐蔽真实 URL -->
+    <script>
+        function openTicData() {
+            var domain = "ticdata.treasury.gov";
+            var path = "/resource-center/data-chart-center/tic/Documents/slt_table5.html";
+            window.open("https://" + domain + path, "_blank");
+        }
+    </script>
 </body>
 </html>
