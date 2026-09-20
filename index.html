@@ -47,6 +47,24 @@
             gap: 8px;
         }
 
+        /* 长文章链接样式（经过卡片化美化） */
+        .article-link-card {
+            display: block;
+            background: #eef6ff;
+            border: 1px solid #d0e5ff;
+            padding: 14px 20px;
+            border-radius: 8px;
+            color: #0070f3;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 20px;
+            transition: all 0.2s;
+        }
+        .article-link-card:hover {
+            background: #e0efff;
+            transform: translateY(-1px);
+        }
+
         /* 1. 诗词板块样式 */
         .poem-box {
             background: #fcfbf7;
@@ -73,7 +91,33 @@
         .news-title { text-decoration: none; color: #333; font-weight: 500; }
         .news-title:hover { color: #0070f3; }
 
-        /* 4. 联系方式样式 */
+        /* 4. 数据/报告专用卡片样式 */
+        .data-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 16px;
+            border-radius: 8px;
+        }
+        .data-desc {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 12px;
+        }
+        .data-btn {
+            display: inline-block;
+            background: #0f172a;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: background 0.2s;
+        }
+        .data-btn:hover {
+            background: #1e293b;
+        }
+
+        /* 5. 联系方式样式 */
         .contact-list { display: flex; flex-wrap: wrap; gap: 12px; }
         .contact-btn {
             background: #f5f5f5;
@@ -107,10 +151,9 @@
             <p>今天终于把自己的个人网站搭建起来了，过程比想象中有趣。拥有一个属于自己的小天地，不用受算法推荐的打扰，安心写点自己喜欢的东西，感觉很棒。</p>
         </div>
 
+        <!-- 独立长文章入口 -->
+        <a href="article1.html" class="article-link-card">📖 点击阅读我的最新长文章：《这里写文章标题》 →</a>
 
-        <a href="article1.html">点击阅读我的最新长文章：《这里写文章标题》</a>
-        
-       
         <!-- 板块 2：每日诗词赏析 -->
         <div class="card">
             <h2 class="card-title">📜 诗词赏析</h2>
@@ -118,7 +161,7 @@
                 <div class="poem-title">《无题》</div>
                 <div class="poem-author">[现] 熹后</div>
                 <div class="poem-content">
-                    女子美在娇与柔，男人肩宽承担多，居家干净赖堂妇，田地平整籍丈夫，一肩担起千金重，撑开黄罗伞一朵！福蔽孙荫吾所愿，唯求风雨勿侵蹂！为人不能安家邦，枉来俗世费米粮！。
+                    女子美在娇与柔，男人肩宽承担多，居家干净赖堂妇，田地平整籍丈夫，一肩担起千金重，撑开黄罗伞一朵！福蔽孙荫吾所愿，唯求风雨勿侵蹂！为人不能安家邦，枉来俗世费米粮！
                 </div>
             </div>
         </div>
@@ -128,7 +171,6 @@
             <h2 class="card-title">🖼️ 图文相册</h2>
             <div class="photo-grid">
                 <div class="photo-card">
-                    <!-- 替换 src 里面的网址为你自己的图片链接 -->
                     <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=500" alt="风景照片">
                     <div class="photo-caption">路途中的风景</div>
                 </div>
@@ -139,10 +181,23 @@
             </div>
         </div>
 
-        <!-- 板块 4：热点关注/文章推荐 -->
+        /* 新增：板块 4：金融与数据观察（包含你指定的 TIC 链接） */
+        <div class="card">
+            <h2 class="card-title">📈 数据与金融观察</h2>
+            <div class="data-box">
+                <p class="data-desc"><strong>美国财政部 TIC 资本流动数据表 (Table 5)</strong><br>包含主要外国持有者的美国国债持仓变化及国际资本流动统计。</p>
+                <a href="https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table5.html" target="_blank" rel="noopener noreferrer" class="data-btn">🔗 点击查看完整 TIC 表格数据 (US Treasury)</a>
+            </div>
+        </div>
+
+        <!-- 板块 5：热点关注/文章推荐 -->
         <div class="card">
             <h2 class="card-title">🔥 关注与热点</h2>
             <ul class="news-list">
+                <li class="news-item">
+                    <span class="news-tag">数据</span>
+                    <a href="https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table5.html" target="_blank" class="news-title">美国 TIC 官方资本流动与国债持仓统计数据 (SLT Table 5)</a>
+                </li>
                 <li class="news-item">
                     <span class="news-tag">科技</span>
                     <a href="#" class="news-title">AI 技术给普通人带来的建站效率革命</a>
@@ -154,7 +209,7 @@
             </ul>
         </div>
 
-        <!-- 板块 5：联系方式 -->
+        <!-- 板块 6：联系方式 -->
         <div class="card">
             <h2 class="card-title">📬 联系与关注</h2>
             <div class="contact-list">
